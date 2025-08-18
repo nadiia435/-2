@@ -7,94 +7,218 @@
     <link rel="stylesheet" href="slyle.css" />
   </head>
   <body>
+    <!-- ===== HEADER ===== -->
     <header class="header">
-      <div class="header-content">
-        <!-- Логотип -->
-        <a href="index.html" class="logo">MNTN</a>
-
-        <!-- Навигация -->
-        <nav class="main-nav" aria-label="Main navigation">
-          <ul class="nav-list">
-            <li><a href="#">Equipment</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Blog</a></li>
+      <div class="container">
+        <a class="header-logo logo" href="index.html">MNTN</a>
+        <nav class="header-menu" aria-label="Main navigation">
+          <ul class="menu">
+            <li class="menu-item"><a href="#">Equipment</a></li>
+            <li class="menu-item"><a href="#">About us</a></li>
+            <li class="menu-item"><a href="#">Blog</a></li>
           </ul>
         </nav>
-        <!-- Аккаунт -->
-        <a href="#" class="account-link">
+
+        <a href="#" class="header-account" aria-label="Account">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
             viewBox="0 0 24 24"
             fill="none"
+            aria-hidden="true"
           >
             <path
               fill-rule="evenodd"
               clip-rule="evenodd"
               d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM7.07 18.28C7.5 17.38 10.12 16.5 12 16.5C13.88 16.5 16.51 17.38 16.93 18.28C15.57 19.36 13.86 20 12 20C10.14 20 8.43 19.36 7.07 18.28ZM18.36 16.83C16.93 15.09 13.46 14.5 12 14.5C10.54 14.5 7.07 15.09 5.64 16.83C4.62 15.49 4 13.82 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 13.82 19.38 15.49 18.36 16.83ZM12 6C10.06 6 8.5 7.56 8.5 9.5C8.5 11.44 10.06 13 12 13C13.94 13 15.5 11.44 15.5 9.5C15.5 7.56 13.94 6 12 6ZM12 11C11.17 11 10.5 10.33 10.5 9.5C10.5 8.67 11.17 8 12 8C12.83 8 13.5 8.67 13.5 9.5C13.5 10.33 12.83 11 12 11Z"
-              fill="white"
+              fill="currentColor"
             />
-            <mask
-              id="mask0_1_50"
-              style="mask-type: luminance"
-              maskUnits="userSpaceOnUse"
-              x="2"
-              y="2"
-              width="20"
-              height="20"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM7.07 18.28C7.5 17.38 10.12 16.5 12 16.5C13.88 16.5 16.51 17.38 16.93 18.28C15.57 19.36 13.86 20 12 20C10.14 20 8.43 19.36 7.07 18.28ZM18.36 16.83C16.93 15.09 13.46 14.5 12 14.5C10.54 14.5 7.07 15.09 5.64 16.83C4.62 15.49 4 13.82 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 13.82 19.38 15.49 18.36 16.83ZM12 6C10.06 6 8.5 7.56 8.5 9.5C8.5 11.44 10.06 13 12 13C13.94 13 15.5 11.44 15.5 9.5C15.5 7.56 13.94 6 12 6ZM12 11C11.17 11 10.5 10.33 10.5 9.5C10.5 8.67 11.17 8 12 8C12.83 8 13.5 8.67 13.5 9.5C13.5 10.33 12.83 11 12 11Z"
-                fill="white"
-              />
-            </mask>
-            <g mask="url(#mask0_1_50)"></g>
           </svg>
           <span>Account</span>
         </a>
       </div>
     </header>
     <main>
+      <!-- ===== HERO ===== -->
       <section class="hero">
-        <!-- Фоновые слои (PNG с прозрачностью) -->
-        <div class="hero-bg" aria-hidden="true">
-          <img class="bg-layer back" src="img/sky.png" alt="" />
-          <img class="bg-layer middle" src="img/mountains.png" alt="" />
-          <img class="bg-layer front" src="img/green.png" alt="" />
-        </div>
-
-        <!-- Контент поверх -->
-        <div class="hero-content">
-          <p class="hero-eyebrow">
-            <span class="line"></span>
-            A Hiking Guide
-          </p>
-
-          <h1 class="hero-title">
-            Be Prepared For The<br />
-            Mountains And Beyond!
-          </h1>
-
-          <p class="hero-scroll">
-            scroll down
+        <img class="hero-bg" src="img/BG all.jpg" alt="hero" />
+        <div class="container">
+          <p class="hero-uptitle">A Hiking guide</p>
+          <h1 class="hero-title">Be prepared for the Mountains and beyond!</h1>
+          <a href="#" class="scroll-down">
+            <span>scroll down</span>
             <svg
-              xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="24"
               viewBox="0 0 16 24"
               fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
                 d="M16 16L14.59 14.59L9 20.17V0H7V20.17L1.42 14.58L0 16L8 24L16 16Z"
                 fill="white"
               />
             </svg>
-          </p>
+          </a>
+        </div>
+      </section>
+      <!-- posts -->
+      <section class="posts">
+        <div class="container">
+          <article class="posts-item">
+            <div class="posts-item_content">
+              <p class="number">01</p>
+              <div class="post-wrapper">
+                <a href="#" class="category">Get started</a>
+                <h2 class="post-title">What level of hiker are you?</h2>
+                <div class="post-excerpt">
+                  <p>
+                    Determining what level of hiker you are can be an important
+                    tool when planning future hikes. This hiking level guide
+                    will help you plan hikes according to different hike ratings
+                    set by various websites like All Trails and Modern Hiker.
+                    What type of hiker are you – novice, moderate, advanced
+                    moderate, expert, or expert backpacker?
+                  </p>
+                </div>
+                <a href="#" class="read-more"
+                  ><span>Read more</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="16"
+                    viewBox="0 0 24 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M16 -6.99382e-07L14.59 1.41L20.17 7L-3.93402e-07 7L-3.0598e-07 9L20.17 9L14.58 14.58L16 16L24 8L16 -6.99382e-07Z"
+                      fill="#FBD784"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="posts-item_image">
+              <img src="img/man in the mountains.jpg" alt="Hiker level guide" />
+            </div>
+          </article>
+
+          <article class="posts-item">
+            <div class="posts-item_content">
+              <p class="number">02</p>
+              <div class="posts-wrapper">
+                <a href="#" class="category">Hiking essentials</a>
+                <h2 class="post-title">Picking the right Hiking Gear!</h2>
+                <div class="post-excerpt">
+                  <p>
+                    The nice thing about beginning hiking is that you don’t
+                    really need any special gear; you can probably get away with
+                    things you already have. Let’s start with clothing. A
+                    typical mistake hiking beginners make is wearing jeans and
+                    regular clothes, which will get heavy and chafe if they get
+                    sweaty or wet.
+                  </p>
+                </div>
+                <a href="#" class="read-more"
+                  ><span>Read more</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="16"
+                    viewBox="0 0 24 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M16 -6.99382e-07L14.59 1.41L20.17 7L-3.93402e-07 7L-3.0598e-07 9L20.17 9L14.58 14.58L16 16L24 8L16 -6.99382e-07Z"
+                      fill="#FBD784"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="posts-item_image">
+              <img src="img/man on a hike.jpg" alt="Essential hiking gear" />
+            </div>
+          </article>
+
+          <article class="posts-item">
+            <div class="posts-item_content">
+              <p class="number">03</p>
+              <div class="post-wrapper">
+                <a href="#" class="category">Safety</a>
+                <h2 class="post-title">Understand Your Map &amp; Timing</h2>
+                <div class="post-excerpt">
+                  <p>
+                    To start, print out the hiking guide and map. If it’s
+                    raining, throw them in a Zip-Lock bag. Read over the guide,
+                    study the map, and have a good idea of what to expect. I
+                    like to know what my next landmark is as I hike. For
+                    example, I’ll read the guide and know that, say, in a mile,
+                    I make a right turn at the junction.
+                  </p>
+                </div>
+                <a href="#" class="read-more">
+                  <span>Read more</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="16"
+                    viewBox="0 0 24 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M16 -6.99382e-07L14.59 1.41L20.17 7L-3.93402e-07 7L-3.0598e-07 9L20.17 9L14.58 14.58L16 16L24 8L16 -6.99382e-07Z"
+                      fill="#FBD784"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="posts-item_image">
+              <img src="img/compass in hand.jpg" alt="Map and route planning" />
+            </div>
+          </article>
         </div>
       </section>
     </main>
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container footer-wrap">
+        <div class="footer-brand">
+          <a class="footer-logo logo" href="index.html">MNTN</a>
+          <p class="brand-text">
+            Get out there & discover your next slope, mountain & destination!
+          </p>
+          <p class="brand-text">
+            Copyright 2019 MNTN, Inc. <a href="#">Terms & Privacy</a>
+          </p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="footer-list">
+            <p class="footer-title">More on The Blog</p>
+            <ul>
+              <li><a href="#">About MNTN</a></li>
+              <li><a href="#">Contributors & Writers</a></li>
+              <li><a href="#">Write For Us</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-list">
+            <p class="footer-title">More on MNTN</p>
+            <ul>
+              <li><a href="#">The Team</a></li>
+              <li><a href="#">Jobs</a></li>
+              <li><a href="#">Press</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>

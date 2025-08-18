@@ -37,7 +37,7 @@
   font-display: swap;
 }
 
-/* ===== БАЗА ===== */
+/* === BASE === */
 :root {
   --bg: #0b1d26;
   --text: #fff;
@@ -45,31 +45,29 @@
   --accent: #fbd784;
 }
 
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
-  background: var(--bg);
   color: var(--text);
-  font-family: "Gilroy", sans-serif;
+  font-family: "Gilroy", system-ui, sans-serif;
   font-size: 18px;
   line-height: 1.8;
+  background: var(--bg);
+  font-style: normal;
 }
-img {
-  max-width: 100%;
-  display: block;
-}
+
 a {
   color: inherit;
   text-decoration: none;
 }
+
 ul,
 ol {
   margin: 0;
-  padding: 0;
+  padding-left: 0;
   list-style: none;
 }
 h1,
@@ -77,97 +75,439 @@ h2,
 p {
   margin: 0;
 }
-
-/* helpers */
 .container {
-  max-width: 1200px;
-  padding: 0 24px;
-  margin: 0 auto;
-}
-.grid-12 {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 24px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-inline: auto;
 }
 
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 17px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-.eyebrow::before {
-  content: "";
-  width: 56px;
-  height: 1px;
-  background: rgba(251, 215, 132, 0.35);
-}
-
-.section-number {
-  font-family: "Chronicle Display", serif;
-  font-size: 240px;
-  font-weight: 700;
-  line-height: 1;
-  opacity: 0.06;
-  user-select: none;
-  pointer-events: none;
-}
-/* Heder */
+/* <!-- ===== HEADER ===== --> */
 
 .header {
   position: absolute;
-  inset: 0 auto auto 0;
+  top: 64px;
+  left: 0;
   width: 100%;
-  padding: 64px 80px 0;
-  z-index: 100; /* выше всего в hero */
-  pointer-events: none; /* клики пойдут на вложенный .header-content */
+  z-index: 9;
 }
 
-.header-content {
+.header .container {
+  max-width: 1790px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  pointer-events: auto;
+  justify-content: space-between;
 }
-
-.header::after {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 140px;
-  background: linear-gradient(
-    180deg,
-    rgba(11, 29, 38, 0.85),
-    rgba(11, 29, 38, 0)
-  );
-  z-index: -1;
-}
-
 .logo {
-  color: var(--text);
-  font-family: "Chronicle Display", serif;
+  color: var(--Wei, #fff);
+  font-family: "Chronicle Display";
   font-size: 32px;
   font-weight: 700;
+  line-height: normal;
   letter-spacing: 0.32px;
   text-transform: capitalize;
 }
-
-.nav-list {
+.menu {
   display: flex;
   gap: 40px;
+  font-style: normal;
   font-weight: 700;
-  font-size: 18px;
-  line-height: 1;
+  line-height: normal;
 }
 
-.account-link {
+.menu a,
+.header-account {
+  color: var(--text);
+  transition: color 0.2s ease;
+}
+
+.menu a:hover,
+.header-account:hover {
+  color: var(--accent);
+}
+
+.header-account {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+/* Hero */
+
+.hero {
+  position: relative;
+}
+
+.hero-bg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.hero .container {
+  position: absolute;
+  width: 980px;
+  top: 287px;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
+}
+
+.hero-uptitle {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 32px;
+  color: var(--Accent, #fbd784);
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+.hero-uptitle::before {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 2px;
+  background-color: var(--accent);
+}
+
+.hero-title {
+  color: var(--Wei, #fff);
+  font-family: "Chronicle Display";
+  font-size: 88px;
+  font-weight: 600;
+  line-height: 100px; /* 113.636% */
+  text-transform: capitalize;
+  margin: 32px 0;
+}
+
+.scroll-down {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--text);
   font-weight: 700;
-  font-size: 17px;
+  line-height: normal;
+  transition: color 0.2s ease;
+}
+.scroll-down svg path {
+  fill: currentColor;
+  transition: fill 0.2s ease;
+}
+
+.scroll-down:hover {
+  color: var(--accent);
+}
+
+/* posts */
+.posts {
+  position: relative;
+  margin-top: -462px;
+  margin-bottom: 200px;
+}
+
+.posts .container {
+  width: 1492px;
+}
+
+.posts-item {
+  display: flex;
+  align-items: center;
+  gap: 114px;
+  position: relative;
+}
+
+.posts-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.posts-item:not(:last-child) {
+  margin-bottom: 200px;
+}
+
+.posts-item_image {
+  flex: 0 0 566px;
+  width: 566px;
+}
+
+.posts-item_content {
+  position: relative;
+  padding-left: 150px;
+}
+
+.posts-wrapper {
+  width: 632px;
+}
+
+/* numbers */
+.number {
+  position: absolute;
+  top: -105px;
+  left: 0;
+  font-size: 240px;
+  font-weight: 700;
   line-height: 1;
+  color: #fff;
+  opacity: 0.06;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.posts-item_content .number {
+  z-index: 0;
+}
+
+.posts-item:first-child .number {
+  z-index: 6;
+  opacity: 0.1;
+}
+
+/* content */
+
+.category {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: var(--Accent, #fbd784);
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+.category::before {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 2px;
+  background-color: var(--accent);
+}
+
+.post-title {
+  color: var(--text);
+  font-family: "Chronicle Display";
+  font-size: 64px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 27px 0;
+}
+
+.post-excerpt {
+  margin-bottom: 27px;
+}
+
+.read-more {
+  display: flex;
+  align-items: center;
+  color: var(--text);
+  gap: 16px;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 18px;
+  transition: color 0.2s ease;
+}
+
+.read-more svg path {
+  fill: currentColor;
+  transition: fill 0.2s ease;
+}
+
+.read-more:hover {
+  color: var(--accent);
+}
+
+/* <!-- ===== FOOTER ===== --> */
+
+.footer {
+  padding: 120px 0 80px;
+}
+
+.footer .container {
+  max-width: 1462px;
+  width: 100%;
+}
+
+.footer-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.footer-brand {
+  flex: 0 0 300px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.footer-logo {
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+.brand-text {
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 32px;
+  margin-bottom: 122px;
+}
+
+.brand-text:last-child {
+  width: 347px;
+  color: var(--text);
+  font-weight: 500;
+  line-height: 32px;
+  opacity: 0.5;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: flex-start;
+  gap: 212px;
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-title {
+  color: var(--accent);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 24px;
+}
+
+.footer-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-list a {
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: normal;
+  transition: color 0.2s ease;
+}
+
+.footer-list a:hover {
+  color: var(--accent);
+}
+
+/* === ДОРАБОТАННАЯ ЭЛЕГАНТНАЯ АНИМАЦИЯ === */
+
+/* Плавная прокрутка для всей страницы */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Изначальное состояние постов */
+.posts-item {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Анимация появления */
+.posts-item.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Плавная анимация для изображений */
+.posts-item_image {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.posts-item_image img {
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.posts-item.fade-in .posts-item_image img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Анимация контента с задержкой */
+.posts-item_content {
+  transform: translateX(-20px);
+  opacity: 0;
+  transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
+}
+
+.posts-item.fade-in .posts-item_content {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Анимация больших номеров */
+.number {
+  opacity: 0.06;
+  transform: scale(0.8) translateY(20px);
+  transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s;
+}
+
+.posts-item.fade-in .number {
+  opacity: 0.1;
+  transform: scale(1) translateY(0);
+}
+
+.posts-item:first-child.fade-in .number {
+  opacity: 0.15;
+}
+
+/* Улучшенные hover эффекты */
+.read-more {
+  transition: color 0.4s ease;
+}
+
+.read-more svg {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.read-more:hover svg {
+  transform: translateX(8px);
+}
+
+/* Плавная анимация для scroll-down кнопки */
+.scroll-down {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.scroll-down:hover {
+  transform: translateY(-2px);
+}
+
+/* Микро-анимация для menu links */
+.menu a {
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.menu a:hover::after {
+  width: 100%;
+  left: 0;
 }

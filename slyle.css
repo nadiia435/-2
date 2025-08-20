@@ -136,7 +136,6 @@ p {
 }
 
 /* Hero */
-
 .hero {
   position: relative;
 }
@@ -146,6 +145,7 @@ p {
   width: 100%;
   height: auto;
 }
+
 .hero .container {
   position: absolute;
   width: 980px;
@@ -179,27 +179,31 @@ p {
   font-family: "Chronicle Display";
   font-size: 88px;
   font-weight: 600;
-  line-height: 100px; /* 113.636% */
+  line-height: 100px;
   text-transform: capitalize;
   margin: 32px 0;
 }
 
 .scroll-down {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 16px;
   color: var(--text);
   font-weight: 700;
   line-height: normal;
-  transition: color 0.2s ease;
+  width: fit-content;
+  transition: color 0.2s ease, transform 0.3s ease;
+}
+.scroll-down * {
+  pointer-events: none;
 }
 .scroll-down svg path {
   fill: currentColor;
   transition: fill 0.2s ease;
 }
-
 .scroll-down:hover {
   color: var(--accent);
+  transform: translateY(-2px);
 }
 
 /* posts */
@@ -218,24 +222,48 @@ p {
   align-items: center;
   gap: 114px;
   position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
 .posts-item:nth-child(even) {
   flex-direction: row-reverse;
 }
-
 .posts-item:not(:last-child) {
   margin-bottom: 200px;
+}
+.posts-item.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .posts-item_image {
   flex: 0 0 566px;
   width: 566px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.posts-item_image img {
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.posts-item.fade-in .posts-item_image img {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .posts-item_content {
   position: relative;
   padding-left: 150px;
+  transform: translateX(-20px);
+  opacity: 0;
+  transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
+}
+.posts-item.fade-in .posts-item_content {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .posts-wrapper {
@@ -254,19 +282,24 @@ p {
   opacity: 0.06;
   z-index: -1;
   pointer-events: none;
+  transform: scale(0.8) translateY(20px);
+  transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s;
 }
-
 .posts-item_content .number {
   z-index: 0;
 }
-
 .posts-item:first-child .number {
   z-index: 6;
+}
+.posts-item.fade-in .number {
   opacity: 0.1;
+  transform: scale(1) translateY(0);
+}
+.posts-item:first-child.fade-in .number {
+  opacity: 0.15;
 }
 
 /* content */
-
 .category {
   display: flex;
   align-items: center;
@@ -277,7 +310,6 @@ p {
   letter-spacing: 6px;
   text-transform: uppercase;
 }
-
 .category::before {
   content: "";
   display: block;
@@ -309,46 +341,44 @@ p {
   font-size: 18px;
   transition: color 0.2s ease;
 }
-
 .read-more svg path {
   fill: currentColor;
   transition: fill 0.2s ease;
 }
-
 .read-more:hover {
   color: var(--accent);
 }
+.read-more svg {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.read-more:hover svg {
+  transform: translateX(8px);
+}
 
-/* <!-- ===== FOOTER ===== --> */
-
+/* Footer */
 .footer {
   padding: 120px 0 80px;
 }
-
 .footer .container {
   max-width: 1462px;
   width: 100%;
 }
-
 .footer-wrap {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 40px;
 }
-
 .footer-brand {
   flex: 0 0 300px;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
-
 .footer-logo {
   margin-bottom: 24px;
   display: inline-block;
 }
-
 .brand-text {
   color: var(--text);
   font-size: 18px;
@@ -356,7 +386,6 @@ p {
   line-height: 32px;
   margin-bottom: 122px;
 }
-
 .brand-text:last-child {
   width: 347px;
   color: var(--text);
@@ -364,18 +393,15 @@ p {
   line-height: 32px;
   opacity: 0.5;
 }
-
 .footer-nav {
   display: flex;
   justify-content: flex-start;
   gap: 212px;
 }
-
 .footer-list {
   display: flex;
   flex-direction: column;
 }
-
 .footer-title {
   color: var(--accent);
   font-size: 24px;
@@ -383,13 +409,11 @@ p {
   line-height: normal;
   margin-bottom: 24px;
 }
-
 .footer-list ul {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-
 .footer-list a {
   color: var(--text);
   font-size: 18px;
@@ -397,105 +421,18 @@ p {
   line-height: normal;
   transition: color 0.2s ease;
 }
-
 .footer-list a:hover {
   color: var(--accent);
 }
 
-/* === ДОРАБОТАННАЯ ЭЛЕГАНТНАЯ АНИМАЦИЯ === */
-
-/* Плавная прокрутка для всей страницы */
+/* misc */
 html {
   scroll-behavior: smooth;
 }
-
-/* Изначальное состояние постов */
-.posts-item {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Анимация появления */
-.posts-item.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Плавная анимация для изображений */
-.posts-item_image {
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.posts-item_image img {
-  opacity: 0;
-  transform: scale(1.1);
-  transition: opacity 1.2s ease, transform 1.2s ease;
-}
-
-.posts-item.fade-in .posts-item_image img {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Анимация контента с задержкой */
-.posts-item_content {
-  transform: translateX(-20px);
-  opacity: 0;
-  transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
-}
-
-.posts-item.fade-in .posts-item_content {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Анимация больших номеров */
-.number {
-  opacity: 0.06;
-  transform: scale(0.8) translateY(20px);
-  transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s;
-}
-
-.posts-item.fade-in .number {
-  opacity: 0.1;
-  transform: scale(1) translateY(0);
-}
-
-.posts-item:first-child.fade-in .number {
-  opacity: 0.15;
-}
-
-/* Улучшенные hover эффекты */
-.read-more {
-  transition: color 0.4s ease;
-}
-
-.read-more svg {
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.read-more:hover svg {
-  transform: translateX(8px);
-}
-
-/* Плавная анимация для scroll-down кнопки */
-.scroll-down {
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.scroll-down:hover {
-  transform: translateY(-2px);
-}
-
-/* Микро-анимация для menu links */
 .menu a {
-  transition: color 0.3s ease;
   position: relative;
+  transition: color 0.3s ease;
 }
-
 .menu a::after {
   content: "";
   position: absolute;
@@ -506,7 +443,6 @@ html {
   background-color: var(--accent);
   transition: width 0.3s ease, left 0.3s ease;
 }
-
 .menu a:hover::after {
   width: 100%;
   left: 0;
